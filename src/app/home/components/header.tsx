@@ -9,7 +9,6 @@ import { logout, resetUserState } from "@/redux/slices/user_slice";
 import DispatchStatus from "@/enums/dispatch_status";
 import { resetTodosState } from "@/redux/slices/todo_slice";
 import { removeReduxState } from "@/data/local/redux_state_local_storage";
-import { removeToken } from "@/data/local/token_data_local_storage";
 
 const Header = () => {
   const auth = useAuth();
@@ -31,7 +30,6 @@ const Header = () => {
       dispatch(resetTodosState());
       dispatch(resetUserState());
       removeReduxState();
-      removeToken();
       auth?.setToken(null);
     }
 
